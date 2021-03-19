@@ -8,7 +8,7 @@ tempCheck = False
 
 values = ['C','c','F','f','K','k']
     
-# Έλεγχος εγκυρότητας κλίμακας
+# Checking the validity of the scale to be selected
 while not(scaleCheck):
     print ('Please select the temperature scale: ')
     tempSc = input('C = Celsius  F = Fahrehneit  K = Kelvin : ' ) #temperature Scale
@@ -19,23 +19,23 @@ while not(scaleCheck):
         print('Invalid input')
 
 print('\n')       
-C = -290   #Absolute zero = -273.15
-F = - 500  #Absolute zero = -459.67
-K = -1     #Absolute zero = 0
+C = -290   #Absolute zero in Celsius = -273.15   \\
+F = -500  #Absolute zero in Fahrenheit = -459.67  initialization below absolute 0 for each temperature scale
+K = -1     #Absolute zero in Kelvin = 0          // 
 
 while not(tempCheck):
     try:
-        temp = float(input('Please insert the temperature : '))
-        if (tempSc == values[0] or tempSc == values[1]):
-            if temp > - 273.15:
+        temp = float(input('Please insert a temperature : '))
+        if (tempSc == values[0] or tempSc == values[1]):   # if the temperature is in Celsius
+            if temp > -273.15:
                 C = temp
                 tempCheck = True
-        elif (tempSc == values[2] or tempSc == values[3]):
+        elif (tempSc == values[2] or tempSc == values[3]): # if the temperature is in Fahrehneit
             if temp > -459.67:
                 F = temp
-                tempCheck = True
+                tempCheck = True 
         else:
-            if temp > 0: 
+            if temp > 0:                                   # if the temperature is in Kelvin
                 K = temp
                 tempCheck = True
         
@@ -44,24 +44,24 @@ while not(tempCheck):
     except:
         print('Invalid input')
      
-# Υπολογισμός τιμών στις άλλες κλίμακες
-if C > - 273.15:
+# calculating values in other scales
+if C > - 273.15:      # if Celsius is the primary scale
     K = C + 273.15
     F = 9/5 * C + 32
-elif F > -459.67:
+elif F > -459.67:     # if Fahrenheit is the primary scale
     C = 5/9 * (F - 32)
     K = C + 273.15
-else:
+else:                 # if Kelvin is the primary scale
     C = K - 273.15
     F = 9/5 * C + 32  
     
 print('\n')
 
-if temp > 30:
+if C > 30:
     print ('It\'s really hot')
-elif temp > 13:
+elif C > 13:
     print ('The weather is nice')
-elif temp > 5:
+elif C > 5:
     print ('It\'s cold')
 else:
     print ('It\'s very cold')
