@@ -64,7 +64,7 @@ elif C > 13:
 elif C > 5:
     print ('It\'s cold')
 else:
-    print ('It\'s very cold')
+    print ('It\'s freezing')
 
 print ('Temperature in Celsius: ', "{:.2f}".format(C),'°C')
 print ('Temperature in Fahrenheit: ', "{:.2f}".format(F),'°F')
